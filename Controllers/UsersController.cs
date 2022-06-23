@@ -20,7 +20,7 @@ namespace CountryCuisine.Controllers
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
 
-        // Constructor that recives a reference to your database context
+        // Constructor that receives a reference to your database context
         // and stores it in _context for you to use in your API methods
         public UsersController(DatabaseContext context)
         {
@@ -40,24 +40,24 @@ namespace CountryCuisine.Controllers
         {
             try
             {
-            // Indicate to the database context we want to add this new record
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+                // Indicate to the database context we want to add this new record
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
 
-            // Return a response that indicates the object was created (status code `201`) and some additional
-            // headers with details of the newly created object.
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+                // Return a response that indicates the object was created (status code `201`) and some additional
+                // headers with details of the newly created object.
+                return CreatedAtAction("GetUser", new { id = user.Id }, user);
             }
             catch (Microsoft.EntityFrameworkCore.DbUpdateException)
-             {
+            {
                 var response = new
                 {
                     status = 400,
-                    errors = new List<string>(){ "This account already exists!" }
+                    errors = new List<string>() { "This account already exists!" }
                 };
                 return BadRequest(response);
             }
- 
+
         }
 
         [HttpPost("{id}/Countries/{country.id}")]
@@ -74,7 +74,6 @@ namespace CountryCuisine.Controllers
 
                 _context.Countries.Add(country);
                 await _context.SaveChangesAsync();
-
                 return Ok(country);
             }
         }

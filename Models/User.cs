@@ -8,20 +8,20 @@ namespace CountryCuisine.Models
 {
     public class User
     {
-        
-        public int Id {get; set;}
+
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "You must provide your first name. ")]
-        public string FirstName {get; set; }
+        public string FirstName { get; set; }
 
         [Required(ErrorMessage = "You must provide your email. ")]
-        public string Email {get; set;}
+        public string Email { get; set; }
 
         [JsonIgnore]
-        public string HashedPassword {get; set;}
-        public string PhotoUrl{get; set;}
+        public string HashedPassword { get; set; }
+        public string PhotoUrl { get; set; }
 
-        public List<Country> Countries {get; set;} 
+        public List<Country> Countries { get; set; }
         // public Country Country { get; set; }
 
         public string Password
@@ -35,8 +35,8 @@ namespace CountryCuisine.Models
         public bool IsValidPassword(string password)
         {
             var passwordVerification = new PasswordHasher<User>().VerifyHashedPassword(this, this.HashedPassword, password);
-       
-        return passwordVerification == PasswordVerificationResult.Success;
+
+            return passwordVerification == PasswordVerificationResult.Success;
         }
     }
 }

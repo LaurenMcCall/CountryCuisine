@@ -69,7 +69,7 @@ namespace CountryCuisine.Controllers
             .Include(country => country.Musics)
             .Include(country => country.Recipes)
             .Include(country => country.Movies).FirstOrDefaultAsync();
-            
+
 
             // If we didn't find anything, we receive a `null` in return
             if (country == null)
@@ -176,7 +176,7 @@ namespace CountryCuisine.Controllers
                 return NotFound();
             }
 
-               if (country.UserId != GetCurrentUserId())
+            if (country.UserId != GetCurrentUserId())
             {
                 // Make a custom error response
                 var response = new
@@ -253,14 +253,14 @@ namespace CountryCuisine.Controllers
             }
         }
 
-       
+
 
         // Private helper method that looks up an existing country by the supplied id
         private bool CountryExists(int id)
         {
             return _context.Countries.Any(country => country.Id == id);
         }
-        
+
         // Private helper method to get the JWT claim related to the user ID
         private int GetCurrentUserId()
         {

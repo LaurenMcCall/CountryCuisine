@@ -60,16 +60,17 @@ namespace CountryCuisine.Controllers
  
         }
 
-        [HttpPost("{id}/Countries")]
+        [HttpPost("{id}/Countries/{country.id}")]
         public async Task<ActionResult<Country>> PostCountryToUserPage(int id, Country country)
         {
             {
-                var userCountry = await _context.Countries.FindAsync(id);
+                var userCountry = await _context.Countries.FindAsync(country.Id);
+                Console.WriteLine("**********", userCountry);
                 if (userCountry == null)
                 {
                     return NotFound();
                 }
-                country.UserId = userCountry.Id;
+                country.Id = userCountry.Id;
 
                 _context.Countries.Add(country);
                 await _context.SaveChangesAsync();
@@ -77,6 +78,5 @@ namespace CountryCuisine.Controllers
                 return Ok(country);
             }
         }
-
     }
 }

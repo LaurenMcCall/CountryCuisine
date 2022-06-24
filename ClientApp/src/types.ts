@@ -61,6 +61,7 @@ export type NewUserType = {
 }
 
 export type LoginUserType = {
+  id: number | undefined
   email: string
   firstName: string
   password: string

@@ -3,6 +3,7 @@ import { getUser } from '../auth'
 
 export function Passport() {
   const user = getUser()
+
   return (
     <div>
       <div className="passport-background">

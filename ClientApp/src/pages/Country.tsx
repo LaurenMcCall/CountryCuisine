@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { authHeader, getUserId } from '../auth'
-
+import { authHeader, getUser, getUserId } from '../auth'
 import { CountryType, MusicType, MovieType, RecipeType } from '../types'
 
 async function loadOneCountry(id: string | undefined) {
@@ -30,6 +29,45 @@ const NullCountry: CountryType = {
 
 export function Country() {
   const { id } = useParams<{ id: string }>()
+
+  const user = getUser()
+
+  const [newStamp, setNewStamp] = useState(NullCountry)
+  // console.log(setNewStamp)
+
+  async function addCountryToPassport() {
+    console.log(newStamp)
+    const response = await fetch(`/api/Users/${user.id}/Countries/${id}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: authHeader(),
+      },
+      body: JSON.stringify(newStamp),
+    })
+
+    if (response.ok) {
+      return response.json()
+    } else {
+      throw await response.json()
+    }
+  }
+
+  // const createNewPassportStamp = useMutation(addCountryToPassport, {
+  //   onSuccess: function () {
+  //     fetch(`/api/users/${id}`)
+  //       .then((response) => response.json())
+  //       .then(() => history(`../countries/${country.id}`))
+  //   },
+  // })
+
+  async function handleButtonSubmit(
+    event: React.ChangeEvent<HTMLBodyElement> | any
+  ) {
+    event.preventDefault()
+
+    addCountryToPassport()
+  }
 
   const [recipes, setRecipes] = useState<RecipeType[]>([])
   const [musics, setMusics] = useState<MusicType[]>([])
@@ -66,6 +104,11 @@ export function Country() {
         })
     }
     loadMovies()
+  }, [id])
+
+  useEffect(() => {
+    loadOneCountry(`${id}`).then((data) => setNewStamp(data))
+    console.log(newStamp)
   }, [id])
 
   const { data: country = NullCountry } = useQuery<CountryType>(
@@ -118,7 +161,9 @@ export function Country() {
       </section>
       <div>
         <div className="country-icon-container">
-          <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
+          <button onClick={handleButtonSubmit}>
+            <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
+          </button>
           <span className="country-icon-text country-add-to-passport">
             Add to my Passport
           </span>

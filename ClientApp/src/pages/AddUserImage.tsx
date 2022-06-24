@@ -22,6 +22,7 @@ export function AddUserImage() {
 
   const history = useNavigate()
   const [loggedInUser, setNewLoggedInUser] = useState<LoginUserType>({
+    id: Number(),
     firstName: '',
     email: '',
     password: '',

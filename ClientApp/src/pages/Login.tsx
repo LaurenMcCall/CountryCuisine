@@ -21,6 +21,7 @@ export function Login() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const [user, setUser] = useState<LoginUserType>({
+    id: Number(),
     email: '',
     firstName: '',
     password: '',

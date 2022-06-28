@@ -1,6 +1,10 @@
 {
   "name": "react-project-template",
   "version": "0.0.0",
+  "engines": {
+    "node": "17.0.1",
+    "npm": "8.1.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && eslint --ext .tsx,.ts . && vite build",

@@ -16,24 +16,37 @@ async function loadOneCountry(id: string | undefined) {
 }
 
 // Null Object Pattern
-const NullCountry: CountryType = {
-  id: Number(),
-  userId: Number(),
-  dateAdded: new Date(),
-  name: '',
-  flagUrl: '',
-  recipes: [],
-  movies: [],
-  musics: [],
-}
 
 export function Country() {
   const { id } = useParams<{ id: string }>()
 
   const user = getUser()
+  // const [countryId, setCountryId] = useState<CountryType>()
+  // console.log(setCountryId)
+
+  const NullCountry: CountryType = {
+    id: Number(),
+    userId: Number(),
+    dateAdded: new Date(),
+    name: '',
+    flagUrl: '',
+    recipes: [],
+    movies: [],
+    musics: [],
+  }
 
   const [newStamp, setNewStamp] = useState(NullCountry)
   // console.log(setNewStamp)
+  useEffect(() => {
+    const loadCountry = () => {
+      fetch(`/api/countries/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setNewStamp(data)
+        })
+    }
+    loadCountry()
+  }, [id])
 
   async function addCountryToPassport() {
     console.log(newStamp)
@@ -62,7 +75,7 @@ export function Country() {
   // })
 
   async function handleButtonSubmit(
-    event: React.ChangeEvent<HTMLBodyElement> | any
+    event: React.ChangeEvent<HTMLButtonElement> | any
   ) {
     event.preventDefault()
 
@@ -106,10 +119,10 @@ export function Country() {
     loadMovies()
   }, [id])
 
-  useEffect(() => {
-    loadOneCountry(`${id}`).then((data) => setNewStamp(data))
-    console.log(newStamp)
-  }, [id])
+  // useEffect(() => {
+  //   loadOneCountry(`${countryId}`).then((data) => setNewStamp(data))
+  //   console.log(newStamp)
+  // }, [countryId])
 
   const { data: country = NullCountry } = useQuery<CountryType>(
     ['one-country', id],

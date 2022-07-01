@@ -176,18 +176,18 @@ namespace CountryCuisine.Controllers
                 return NotFound();
             }
 
-            if (country.UserId != GetCurrentUserId())
-            {
-                // Make a custom error response
-                var response = new
-                {
-                    status = 401,
-                    errors = new List<string>() { "You are not Authorized to delete this country!" }
-                };
+            // if (country.UserId != GetCurrentUserId())
+            // {
+            //     // Make a custom error response
+            //     var response = new
+            //     {
+            //         status = 401,
+            //         errors = new List<string>() { "You are not Authorized to delete this country!" }
+            //     };
 
-                // Return our error with the custom response
-                return Unauthorized(response);
-            }
+            //     // Return our error with the custom response
+            //     return Unauthorized(response);
+            // }
 
             // Tell the database we want to remove this record
             _context.Countries.Remove(country);

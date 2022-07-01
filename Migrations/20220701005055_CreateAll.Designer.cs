@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountryCuisine.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220621214214_CreateAll")]
+    [Migration("20220701005055_CreateAll")]
     partial class CreateAll
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

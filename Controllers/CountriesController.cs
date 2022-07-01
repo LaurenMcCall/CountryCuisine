@@ -143,11 +143,11 @@ namespace CountryCuisine.Controllers
         // new values for the record.
         //
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Country>> PostCountry(Country country)
         {
             // Set the UserID to the current user id, this overrides anything the user specifies.
-            country.UserId = GetCurrentUserId();
+            // country.UserId = GetCurrentUserId();
 
             // Indicate to the database context we want to add this new record
             _context.Countries.Add(country);
@@ -165,7 +165,7 @@ namespace CountryCuisine.Controllers
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
         [HttpDelete("{id}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteCountry(int id)
         {
             // Find this country by looking for the specific id

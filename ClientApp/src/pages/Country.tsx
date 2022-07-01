@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { authHeader, getUser, getUserId } from '../auth'
+import { authHeader, getUserId } from '../auth'
 import { CountryType, MusicType, MovieType, RecipeType } from '../types'
 
 async function loadOneCountry(id: string | undefined) {
@@ -20,7 +20,7 @@ async function loadOneCountry(id: string | undefined) {
 export function Country() {
   const { id } = useParams<{ id: string }>()
 
-  const user = getUser()
+  // const user = getUser()
   // const [countryId, setCountryId] = useState<CountryType>()
   // console.log(setCountryId)
 
@@ -35,36 +35,36 @@ export function Country() {
     musics: [],
   }
 
-  const [newStamp, setNewStamp] = useState(NullCountry)
+  // const [newStamp, setNewStamp] = useState(NullCountry)
   // console.log(setNewStamp)
-  useEffect(() => {
-    const loadCountry = () => {
-      fetch(`/api/countries/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setNewStamp(data)
-        })
-    }
-    loadCountry()
-  }, [id])
+  // useEffect(() => {
+  //   const loadCountry = () => {
+  //     fetch(`/api/countries/${id}`)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setNewStamp(data)
+  //       })
+  //   }
+  //   loadCountry()
+  // }, [id])
 
-  async function addCountryToPassport() {
-    console.log(newStamp)
-    const response = await fetch(`/api/Users/${user.id}/Countries/${id}`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        Authorization: authHeader(),
-      },
-      body: JSON.stringify(newStamp),
-    })
+  // async function addCountryToPassport() {
+  //   console.log(newStamp)
+  //   const response = await fetch(`/api/Users/${user.id}/Countries/${id}`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json',
+  //       Authorization: authHeader(),
+  //     },
+  //     body: JSON.stringify(newStamp),
+  //   })
 
-    if (response.ok) {
-      return response.json()
-    } else {
-      throw await response.json()
-    }
-  }
+  //   if (response.ok) {
+  //     return response.json()
+  //   } else {
+  //     throw await response.json()
+  //   }
+  // }
 
   // const createNewPassportStamp = useMutation(addCountryToPassport, {
   //   onSuccess: function () {
@@ -74,13 +74,13 @@ export function Country() {
   //   },
   // })
 
-  async function handleButtonSubmit(
-    event: React.ChangeEvent<HTMLButtonElement> | any
-  ) {
-    event.preventDefault()
+  // async function handleButtonSubmit(
+  //   event: React.ChangeEvent<HTMLButtonElement> | any
+  // ) {
+  //   event.preventDefault()
 
-    addCountryToPassport()
-  }
+  //   addCountryToPassport()
+  // }
 
   const [recipes, setRecipes] = useState<RecipeType[]>([])
   const [musics, setMusics] = useState<MusicType[]>([])
@@ -174,9 +174,8 @@ export function Country() {
       </section>
       <div>
         <div className="country-icon-container">
-          <button onClick={handleButtonSubmit}>
-            <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
-          </button>
+          <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
+
           <span className="country-icon-text country-add-to-passport">
             Add to my Passport
           </span>

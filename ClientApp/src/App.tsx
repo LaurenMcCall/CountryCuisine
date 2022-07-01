@@ -14,7 +14,7 @@ import { Footer } from './components/Footer'
 import { AddRecipe } from './pages/AddRecipe'
 import { AddMusic } from './pages/AddMusic'
 import { AddMovie } from './pages/AddMovie'
-import { AddUserImage } from './pages/AddUserImage'
+// import { AddUserImage } from './pages/AddUserImage'
 
 export function App() {
   return (
@@ -32,10 +32,10 @@ export function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/passport/:id" element={<Passport />} />
-          <Route
+          {/* <Route
             path="/passport/:id/addPassportPhoto"
             element={<AddUserImage />}
-          />
+          /> */}
           <Route path="*" element={'No Match'} />
         </Routes>
       </main>

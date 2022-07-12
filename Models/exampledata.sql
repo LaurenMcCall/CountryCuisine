@@ -35,6 +35,6 @@ VALUES ('2022-05-21 14:28:01', 'Zulma Yugar', 'Bolivian classical folk singer', 
 INSERT INTO "Musics" ("DateAdded", "Artist", "Description", "Url", "PhotoUrl", "CountryId")
 VALUES ('2022-05-21 14:50:01', 'Agnes Obel', 'Danish singer-songwriter', 'https://open.spotify.com/album/6QvHf4M3JDX90qtX3XclDb?si=iMljkIDLSEa5pSnYIA8l8g', 'https://media.npr.org/assets/img/2017/02/22/agnes-obel-credit-alex-br-el-flagstad_slide-2774acd62615bce836561bdf123167802f37a19c.jpg', 2);
 INSERT INTO "Musics" ("DateAdded", "Artist", "Description", "Url", "PhotoUrl", "CountryId")
-VALUES ('2022-05-21 15:18:01', 'Bruce Melodie', 'Rwandan artist and songwriter', 'https://open.spotify.com/artist/2esEiOAGqbIDlRwwUK2wnP?si=xYlZxiNkRh6sEVgFyMzDCQ', 'https://yegob.rw/wp-content/uploads/2021/02/bruce_melody-6.jpg', 3);
+VALUES ('2022-05-21 15:18:01', 'Bruce Melodie', 'Rwandan artist and songwriter', 'https://open.spotify.com/artist/2esEiOAGqbIDlRwwUK2wnP?si=xYlZxiNkRh6sEVgFyMzDCQ', 'https://pbs.twimg.com/profile_images/1399987663671861248/1BoBNqIm_400x400.jpg', 3);
 INSERT INTO "Musics" ("DateAdded", "Artist", "Description", "Url", "PhotoUrl", "CountryId")
 VALUES ('2022-05-24 14:15:01', 'Sevara Nazarkhan', 'Uzbek singer, songwriter & musician', 'https://open.spotify.com/album/1lg4Lhcg4UMiNDUL5btlIR?si=erjWpDcxRQWMs-iIYpe22g', 'https://i1.sndcdn.com/avatars-000004717519-c5s0eh-t500x500.jpg', 4);

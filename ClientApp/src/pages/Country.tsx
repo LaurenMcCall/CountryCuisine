@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { authHeader, getUserId } from '../auth'
+import { authHeader, getUserId, isLoggedIn } from '../auth'
 import { CountryType, MusicType, MovieType, RecipeType } from '../types'
 
 async function loadOneCountry(id: string | undefined) {
@@ -206,9 +206,13 @@ export function Country() {
           ))}
         </section>
         <div className="a-country">
-          <Link to={`/countries/${id}/addrecipe`}>
-            <button className="add-button"> Add Recipe</button>
-          </Link>
+          {isLoggedIn() ? (
+            <Link to={`/countries/${id}/addrecipe`}>
+              <button className="add-button"> Add Recipe</button>
+            </Link>
+          ) : (
+            ''
+          )}
         </div>
       </div>
       <div>
@@ -236,9 +240,13 @@ export function Country() {
           ))}
         </section>
         <div className="a-country">
-          <Link to={`/countries/${id}/addmusic`}>
-            <button className="add-button">Add Music</button>
-          </Link>
+          {isLoggedIn() ? (
+            <Link to={`/countries/${id}/addmusic`}>
+              <button className="add-button">Add Music</button>
+            </Link>
+          ) : (
+            ''
+          )}
         </div>
       </div>
       <div className="country-mb">
@@ -266,9 +274,13 @@ export function Country() {
           ))}
         </section>
         <div className="a-country">
-          <Link to={`/countries/${id}/addmovie`}>
-            <button className="add-button">Add Movie</button>
-          </Link>
+          {isLoggedIn() ? (
+            <Link to={`/countries/${id}/addmovie`}>
+              <button className="add-button">Add Movie</button>
+            </Link>
+          ) : (
+            ''
+          )}
         </div>
         <div className="a-country">
           {country.userId === getUserId() ? (

@@ -80,6 +80,6 @@ export type LoginSuccess = {
   }
 }
 
-export type UploadResponse = {
-  url: string
-}
+// export type UploadResponse = {
+//   url: string
+// }

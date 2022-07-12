@@ -429,7 +429,7 @@ h3.passport {
     margin-left: 7px;
   }
   footer {
-    // margin-top: -110px;
+    // margin-top: 100px;
     font-size: 14px;
   }
   .random-country-button {
@@ -521,14 +521,10 @@ h3.passport {
   }
 
   .delete-button {
-    font: 0.9em /1 'Koulen', cursive;
-    background-color: black;
-    color: var(--lite-gray);
-    border-radius: 8px;
-    border: 1px solid var(--yellow-green);
-    padding: 8px;
-    margin-top: 0px;
-    // margin-bottom: 0px;
+    font: 1em /1 'Koulen', cursive;
+    padding: 9px;
+    // margin-top: -60px;
+    // margin-bottom: -80px;
   }
 
   .country-icon-addToPassport {

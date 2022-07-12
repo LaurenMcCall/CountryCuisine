@@ -321,7 +321,19 @@ button.addCountry {
   border: 1px solid var(--yellow-green);
   padding: 8px;
   margin-top: 0px;
-  margin-bottom: 30px;
+  // margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.delete-button {
+  font: 0.9em /1 'Koulen', cursive;
+  background-color: black;
+  color: var(--lite-gray);
+  border-radius: 8px;
+  border: 1px solid var(--yellow-green);
+  padding: 8px;
+  margin-top: 0px;
+  // margin-bottom: 0px;
   cursor: pointer;
 }
 
@@ -417,7 +429,8 @@ h3.passport {
     margin-left: 7px;
   }
   footer {
-    margin-top: 90px;
+    // margin-top: -110px;
+    font-size: 14px;
   }
   .random-country-button {
     padding: 5px;
@@ -432,10 +445,6 @@ h3.passport {
     margin-left: 80px;
     margin-right: 80px;
     font: 1.4em/1 'Roboto Flex', sans-serif;
-  }
-
-  footer {
-    font-size: 14px;
   }
 
   // Countries Page
@@ -468,6 +477,9 @@ h3.passport {
   // Country page
   .country-container {
     font: 8em/1 'Koulen', cursive;
+    // position: sticky;
+    // top: 0;
+    // background-color: transparent;
   }
   .country-ml {
     margin-left: 15px;
@@ -505,7 +517,20 @@ h3.passport {
     font: 1em /1 'Koulen', cursive;
     padding: 9px;
     margin-top: -60px;
+    // margin-bottom: 70px;
   }
+
+  .delete-button {
+    font: 0.9em /1 'Koulen', cursive;
+    background-color: black;
+    color: var(--lite-gray);
+    border-radius: 8px;
+    border: 1px solid var(--yellow-green);
+    padding: 8px;
+    margin-top: 0px;
+    // margin-bottom: 0px;
+  }
+
   .country-icon-addToPassport {
     color: var(--yellow-green);
     background-color: black;

@@ -60,22 +60,22 @@ namespace CountryCuisine.Controllers
 
         }
 
-        [HttpPost("{id}/Countries/{country.id}")]
-        public async Task<ActionResult<Country>> PostCountryToUserPage(int id, Country country)
-        {
-            {
-                var userCountry = await _context.Countries.FindAsync(country.Id);
-                Console.WriteLine("**********", userCountry);
-                if (userCountry == null)
-                {
-                    return NotFound();
-                }
-                country.Id = userCountry.Id;
+        // [HttpPost("{id}/Countries/{country.id}")]
+        // public async Task<ActionResult<Country>> PostCountryToUserPage(int id, Country country)
+        // {
+        //     {
+        //         var userCountry = await _context.Countries.FindAsync(country.Id);
+        //         Console.WriteLine("**********", userCountry);
+        //         if (userCountry == null)
+        //         {
+        //             return NotFound();
+        //         }
+        //         country.Id = userCountry.Id;
 
-                _context.Countries.Add(country);
-                await _context.SaveChangesAsync();
-                return Ok(country);
-            }
-        }
+        //         _context.Countries.Add(country);
+        //         await _context.SaveChangesAsync();
+        //         return Ok(country);
+        //     }
+        // }
     }
 }

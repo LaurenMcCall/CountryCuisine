@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && eslint --ext .tsx,.ts . && vite build",
     "serve": "vite preview",
-    "start": "vite",
+    "start": "npm start",
     "predeploy": "npm run build",
     "deploy": "netlify deploy --prod --dir=dist"
   },

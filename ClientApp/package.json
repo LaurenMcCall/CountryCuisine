@@ -2,8 +2,7 @@
   "name": "react-project-template",
   "version": "0.0.0",
   "engines": {
-    "node": "16.15.1",
-    "npm": "8.x"
+    "node": "v17.5.0"
   },
   "scripts": {
     "dev": "vite",

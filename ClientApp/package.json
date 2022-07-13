@@ -5,12 +5,12 @@
     "node": "v17.5.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && eslint --ext .tsx,.ts . && vite build",
-    "serve": "vite preview",
-    "start": "vite",
-    "predeploy": "npm run build",
-    "deploy": "netlify deploy --prod --dir=dist"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "prettier": {
     "trailingComma": "es5",

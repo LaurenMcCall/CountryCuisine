@@ -143,7 +143,7 @@ namespace CountryCuisine.Controllers
         // new values for the record.
         //
         [HttpPost]
-        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Country>> PostCountry(Country country)
         {
             // Set the UserID to the current user id, this overrides anything the user specifies.
@@ -165,7 +165,7 @@ namespace CountryCuisine.Controllers
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
         [HttpDelete("{id}")]
-        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteCountry(int id)
         {
             // Find this country by looking for the specific id
@@ -176,18 +176,18 @@ namespace CountryCuisine.Controllers
                 return NotFound();
             }
 
-            // if (country.UserId != GetCurrentUserId())
-            // {
-            //     // Make a custom error response
-            //     var response = new
-            //     {
-            //         status = 401,
-            //         errors = new List<string>() { "You are not Authorized to delete this country!" }
-            //     };
+            if (country.UserId != GetCurrentUserId())
+            {
+                // Make a custom error response
+                var response = new
+                {
+                    status = 401,
+                    errors = new List<string>() { "You are not Authorized to delete this country!" }
+                };
 
-            //     // Return our error with the custom response
-            //     return Unauthorized(response);
-            // }
+                // Return our error with the custom response
+                return Unauthorized(response);
+            }
 
             // Tell the database we want to remove this record
             _context.Countries.Remove(country);

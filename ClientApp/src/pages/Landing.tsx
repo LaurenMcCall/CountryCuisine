@@ -16,6 +16,8 @@ export function Landing() {
       fetch(`/api/countries/`)
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
+
           setCountries(data)
         })
     }

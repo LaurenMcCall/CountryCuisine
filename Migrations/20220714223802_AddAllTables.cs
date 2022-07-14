@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CountryCuisine.Migrations
 {
-    public partial class CreateAll : Migration
+    public partial class AddAllTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

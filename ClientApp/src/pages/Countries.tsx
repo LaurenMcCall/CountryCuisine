@@ -12,7 +12,8 @@ export function Countries() {
     async function () {
       const response = await fetch(
         filterText.length === 0
-          ? '/api/countries'
+          ? // 'https://countrycuisine.herokuapp.com/api/Countries'
+            '/api/countries'
           : `/api/countries?filter=${filterText}`
       )
       return response.json()

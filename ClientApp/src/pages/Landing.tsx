@@ -66,7 +66,7 @@ export function Landing() {
         <button onClick={loadOneCountry} className="random-country-button">
           Random Country
         </button>
-        <div>
+        {/* <div>
           {isLoggedIn() ? null : (
             <>
               <p className="landing">
@@ -79,7 +79,7 @@ export function Landing() {
               </p>
             </>
           )}
-        </div>
+        </div> */}
       </div>
       <div>
         <article>

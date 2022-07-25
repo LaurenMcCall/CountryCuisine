@@ -117,9 +117,9 @@ function SignedOutNav() {
               href="/search"
             ></a>
           </li>
-          <button className="nav-button">
+          {/* <button className="nav-button">
             <Link to="/login">Log In</Link>
-          </button>
+          </button> */}
         </ul>
       </nav>
     </>

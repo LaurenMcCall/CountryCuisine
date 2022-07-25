@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import { useQuery } from 'react-query'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getUser, isLoggedIn } from '../auth'
 import { CountryType } from '../types'
 // import { CountryType } from '../types'

@@ -173,13 +173,13 @@ export function Country() {
         <p className="country-ml">{country.name}</p>
       </section>
       <div>
-        <div className="country-icon-container">
+        {/* <div className="country-icon-container">
           <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
 
           <span className="country-icon-text country-add-to-passport">
             Add to my Passport
           </span>
-        </div>
+        </div> */}
         <section>
           <div className="country-icon-container">
             <i className="fa-solid fa-utensils country-icon"> </i>

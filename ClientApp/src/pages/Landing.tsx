@@ -87,9 +87,8 @@ export function Landing() {
             About us <br /> <br /> Country Cuisine Night was born from a passion
             of geography, food, and art. Travel to a random country and listen
             to music while you cook a delicious meal. After dinner, snuggle and
-            chill while watching a movie. Add countries to your passport and
-            revisit! I hope your travels bring curiosity and joy to your day.
-            Thank you for stopping by.
+            chill while watching a movie. I hope your travels bring curiosity
+            and joy to your day. Thank you for stopping by.
           </h5>
         </article>
       </div>

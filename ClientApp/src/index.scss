@@ -38,6 +38,9 @@ header {
 .nav-icon {
   font-size: 1.8em;
   margin-top: 3px;
+  background-color: var(--turquoise);
+  border: transparent;
+  cursor: pointer;
 }
 .nav-passport {
   background-color: var(--yellow-green);
